@@ -1,0 +1,3 @@
+
+<van-icon class="noban_icon"  name="friends-o" size="200rpx" color="#C7F709"/> 
+ <view style="text-align:center">你没有绑定用户,请点击个人信息绑定用户</view>

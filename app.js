@@ -1,16 +1,17 @@
-//app.js
-App({
-  onLaunch: function () {
- 
+import {
+  login
+} from '/utils/request.js'
 
-    // 登录
-    wx.login({
-      success: res => {
-        console.log(res)
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-  
+
+App({
+  globalData: {
+    isband:false
   },
-  
+ //前端渣渣写的代码，大佬不要喷我
+  onLaunch: function () {
+    //每次登陆都要登陆，每次刷新token
+      login();
+  }
+
+
 })

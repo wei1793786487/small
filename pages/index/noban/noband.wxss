@@ -1,0 +1,10 @@
+/* pages/index/noban/noband.wxss */
+.noband{
+  margin-right: 500rpx;
+  margin-top: 500rpx
+}
+
+.noban_icon{
+margin-top: 250rpx;
+width:700rpx
+}

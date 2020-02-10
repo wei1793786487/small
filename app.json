@@ -5,6 +5,7 @@
     "pages/details/details",
     "pages/user/user"
   ],
+  
   "tabBar": {
     "list": [
       {

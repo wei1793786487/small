@@ -4,12 +4,13 @@
     <block wx:if="{{isband}}">
       <van-cell-group wx:for="{{Check}}" wx:key="{{index}}">
       <!-- {{item}} -->
-        <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}" link-type="navigateTo" url="/pages/details/details" border="{{ true }}" />
+        <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}" bind:click ='Jump' data-id="{{item.id}}"  border="{{ true }}" />
       </van-cell-group>
     </block>
     <block wx:else>
       <noband/>
     </block>
+
 
 
   </van-tab>
@@ -19,7 +20,7 @@
     <block wx:if="{{isband}}">
       <van-cell-group wx:for="{{UnCheck}}" wx:key="{{index}}">
       <!-- {{item}} -->
-        <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}" link-type="navigateTo" url="/pages/details/details" border="{{ true }}" />
+        <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}"  bind:click ='Jump' data-id="{{item.id}}" border="{{ true }}" />
       </van-cell-group>
     </block>
     <block wx:else>
@@ -33,7 +34,7 @@
     <block wx:if="{{isband}}">
       <van-cell-group wx:for="{{TimeOut}}" wx:key="{{index}}">
       <!-- {{item}} -->
-        <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}" link-type="navigateTo" url="/pages/details/details?id={{item.id}}" border="{{ true }}" />
+        <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}" bind:click ='Jump' data-id="{{item.id}}" border="{{ true }}" />
       </van-cell-group>
     </block>
     <block wx:else>

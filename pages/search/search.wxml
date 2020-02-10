@@ -1,4 +1,4 @@
-<van-search value="{{ value }}" 
+<!-- <van-search value="{{ value }}" 
 placeholder="请输入你要签到的会议"
  background="#1AE6E6"
- bind:search="serrch" />
+ bind:search="serrch" /> -->

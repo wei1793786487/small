@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/search/search",
-    "pages/details/details"
+    "pages/details/details",
+    "pages/user/user"
   ],
   "tabBar": {
     "list": [
@@ -11,7 +12,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/details/details",
+        "pagePath": "pages/user/user",
         "text": "个人信息"
       }
     ]

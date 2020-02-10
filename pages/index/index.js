@@ -1,9 +1,9 @@
 // pages/index/index.js
-
 import {
   getMeeting
 }
-  from '../../utils/request.js'
+from '../../utils/request.js'
+var app = getApp();
 
 Page({
 
@@ -22,12 +22,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+   
     const Check = [];
     const UnCheck = [];
     const TimeOut = [];
     // onLaunch()中的请求与index.js onLoad()中的请求是同时进行的 需要使用promise转为同步
-    var app = getApp();
+   
     app.loginsync().then((res) => {
 
       if (res.statusCode == 200) {
@@ -73,15 +74,21 @@ Page({
           console.log(this.data.Check)
           console.log("超时")
           console.log(this.data.TimeOut)
-
-        }
-        )
+          wx.stopPullDownRefresh()
+        })
 
       }
     })
   },
+  /**
+  * 页面相关事件处理函数--监听用户下拉动作
+  */
+  onPullDownRefresh: function () {
+    this.onLoad();
+   
+  },
   //页面跳转
-  Jump: function (data) {
+  Jump: function(data) {
     const id = data.target.dataset.id;
     wx.redirectTo({
       url: '/pages/details/details?id=' + id + '',

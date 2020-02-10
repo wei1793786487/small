@@ -8,5 +8,6 @@
     "noband": "./noban/noband"
   },
   "navigationBarBackgroundColor": "#5BFAFA",
-  "navigationBarTitleText": "我的签到"
+  "navigationBarTitleText": "我的签到",
+  "enablePullDownRefresh": true
 }

@@ -1,7 +1,8 @@
 
 App({
   globalData: {
-    isband:false
+    isband:false,
+    islogin:1
   },
  //前端渣渣写的代码，大佬不要喷我
   onLaunch: function () {
@@ -11,7 +12,7 @@ App({
 loginsync(){
   return new Promise((resolve, reject) =>{
       wx.showLoading({
-        title: '登陆中',
+        title: '请等待',
       })
       wx.login({
         success: res => {

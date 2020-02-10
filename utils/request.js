@@ -12,6 +12,11 @@ export function getMeeting() {
   })
 }
 
+export function getOneMeeting(id) {
+  return request({
+    url: url + "/meeting/"+id+""
+  })
+}
 
 
 

@@ -3,14 +3,13 @@
 <van-cell-group>
 <view class="flex-sub text-center back ">
       <view class="solid-bottom text-xl padding">
-        <text class="text-black text-bold">测试会议</text>
+        <text class="text-black text-bold">{{name}}</text>
       </view>
       </view>
-  <van-cell title="会议人数" value="3" />
-  <van-cell title="会议开始时间" value="2000年3月4号 18:24" />
-  <van-cell title="结束时间" value="2000年3月4号 18：45" />
-  <van-cell title="会议地点" value="山东省莒南县岩壁真445号" />
-    <van-cell title="联系人电话" value="山东省莒南县岩壁真445号" />
-   <van-cell title="会议介绍"  label="哒哒哒哒哒哒的的的的的的的的描述信息" />
+  <van-cell title="会议开始时间" value="{{startTime}}" />
+  <van-cell title="结束时间" value="{{endTime}}" />
+  <van-cell title="会议地点" value="{{address}}" />
+    <van-cell title="联系人电话" value="{{meetingPhone}}" />
+   <van-cell title="会议介绍"  label="{{information==''?'无信息':information}}" />
    <van-button type="primary" size="large">点我去签到</van-button>
 </van-cell-group>

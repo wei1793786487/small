@@ -1,7 +1,3 @@
-import {
-  login
-} from '/utils/request.js'
-
 
 App({
   globalData: {
@@ -10,8 +6,39 @@ App({
  //前端渣渣写的代码，大佬不要喷我
   onLaunch: function () {
     //每次登陆都要登陆，每次刷新token
-      login();
-  }
+  },
+
+loginsync(){
+  return new Promise((resolve, reject) =>{
+      wx.showLoading({
+        title: '登陆中',
+      })
+      wx.login({
+        success: res => {
+          console.log(res)
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          wx.request({
+            url: 'http://127.0.0.1:10086/miniUser/login',
+            data: {
+              code: res.code
+            },
+            success: (res) => {
+              resolve(res);
+            },
+            fail: (err) => {
+              reject(err)
+            }
+          })
+        }
+      })
+    
+
+
+    }
+  );
+},
+
+
 
 
 })

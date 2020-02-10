@@ -1,10 +1,10 @@
 <van-tabs active="{{ active }}" color="#5BFAFA">
+
   <van-tab title="已签到">
-
-
     <block wx:if="{{isband}}">
-      <van-cell-group wx:for="{{10}}" wx:key="{{index}}">
-        <van-cell title="{{meetingName}}" label="{{time}}" link-type="navigateTo" url="/pages/details/details" border="{{ true }}" />
+      <van-cell-group wx:for="{{Check}}" wx:key="{{index}}">
+      <!-- {{item}} -->
+        <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}" link-type="navigateTo" url="/pages/details/details" border="{{ true }}" />
       </van-cell-group>
     </block>
     <block wx:else>
@@ -15,9 +15,11 @@
   </van-tab>
   <van-tab title="未签到">
 
+ 
     <block wx:if="{{isband}}">
-      <van-cell-group wx:for="{{10}}" wx:key="{{index}}">
-        <van-cell title="{{meetingName}}" label="{{time}}" link-type="navigateTo" url="/pages/details/details" border="{{ true }}" />
+      <van-cell-group wx:for="{{UnCheck}}" wx:key="{{index}}">
+      <!-- {{item}} -->
+        <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}" link-type="navigateTo" url="/pages/details/details" border="{{ true }}" />
       </van-cell-group>
     </block>
     <block wx:else>
@@ -27,9 +29,11 @@
   </van-tab>
 
   <van-tab title="签到过期">
+   
     <block wx:if="{{isband}}">
-      <van-cell-group wx:for="{{10}}" wx:key="{{index}}">
-        <van-cell title="{{meetingName}}" label="{{time}}" link-type="navigateTo" url="/pages/details/details" border="{{ true }}" />
+      <van-cell-group wx:for="{{TimeOut}}" wx:key="{{index}}">
+      <!-- {{item}} -->
+        <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}" link-type="navigateTo" url="/pages/details/details?id={{item.id}}" border="{{ true }}" />
       </van-cell-group>
     </block>
     <block wx:else>

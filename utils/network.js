@@ -1,13 +1,10 @@
-import {
-  login
-}
-from './network.js'
 
-const token = wx.getStorageSync('token');
 
 export function request(options) {
+  //草 应该是执行这个方法的时时候在取出啊！！
   return new Promise((resolve, reject) => {
-    wx.request({
+    const token = wx.getStorageSync('token');
+ wx.request({
       url: options.url,
       method: options.method || 'get',
       data: options.data || {},
@@ -15,6 +12,8 @@ export function request(options) {
         token
       },
       success: res => {
+        console.log(options.url)
+        console.log(token)
         //一般不会
         if (res.data.code === 1000) {
           console.log("认证失效,重新认证")
@@ -29,7 +28,7 @@ export function request(options) {
                 },
                 success: (res) => {
                   if (res.statusCode == 200) {
-                    const token = res.data;
+                    const token = res.data.token;
                     //进行本地的储存
                     wx.setStorageSync('token', token)
                   }

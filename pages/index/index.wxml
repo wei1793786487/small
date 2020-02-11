@@ -4,7 +4,7 @@
     <block wx:if="{{isband}}">
       <van-cell-group wx:for="{{Check}}" wx:key="{{index}}">
       <!-- {{item}} -->
-        <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}" bind:click ='Jump' data-id="{{item.id}}"  border="{{ true }}" />
+        <van-cell title="{{item.meetingName}}" data-ischeck="{{true}}" label="{{item.startTime+'到'+item.endTime}}" bind:click ='Jump' data-id="{{item.id}}"  border="{{ true }}" />
       </van-cell-group>
     </block>
     <block wx:else>
@@ -16,7 +16,6 @@
   </van-tab>
   <van-tab title="未签到">
 
- 
     <block wx:if="{{isband}}">
       <van-cell-group wx:for="{{UnCheck}}" wx:key="{{index}}">
       <!-- {{item}} -->

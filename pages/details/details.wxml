@@ -11,5 +11,5 @@
   <van-cell title="会议地点" value="{{address}}" />
     <van-cell title="联系人电话" value="{{meetingPhone}}" />
    <van-cell title="会议介绍"  label="{{information==''?'无信息':information}}" />
-   <van-button bind:tap="goLogin" type="primary" size="large">点我去签到</van-button>
+   <van-button bind:click="goLogin" disabled='{{isfalse}}' type="primary" size="large">{{buttontext}}</van-button>
 </van-cell-group>

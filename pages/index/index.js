@@ -14,7 +14,7 @@ Page({
     Check: [],
     UnCheck: [],
     TimeOut: [],
-    active: 0,
+    active: 1,
     isband: false,
 
   },
@@ -90,8 +90,9 @@ Page({
   //页面跳转
   Jump: function(data) {
     const id = data.target.dataset.id;
+    const ischeck = data.target.dataset.ischeck;
     wx.redirectTo({
-      url: '/pages/details/details?id=' + id + '',
+      url: '/pages/details/details?id=' + id + '&ischeck='+ischeck+'',
     })
   }
 })

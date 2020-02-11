@@ -18,5 +18,16 @@ export function getOneMeeting(id) {
   })
 }
 
+export function getface(str,mid) {
+  console.log(mid)
+  return request({
+    url: "http://127.0.0.1:8080/face/search",
+    method:'post',
+    data:{
+      mid:mid,
+      imgStr:str
+    }
+  })
+}
 
 

@@ -3,6 +3,7 @@ import {
   getOneMeeting
 }
 from '../../utils/request.js'
+var _mid="";
 Page({
 
   /**
@@ -22,6 +23,7 @@ Page({
    */
   onLoad: function(options) {
     const mid = options.id;
+    _mid=mid;
     console.log(mid)
     getOneMeeting(mid).then(res => {
       console.log(res)
@@ -40,53 +42,10 @@ Page({
 
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
+  goLogin(){
+    console.log(_mid)
+    wx.redirectTo({
+      url: '/pages/face/face?id='+_mid+'',
+    })
   }
 })

@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/search/search",
+    "pages/face/face",
     "pages/details/details",
     "pages/user/user"
   ],
@@ -20,7 +20,7 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#5BFAFA",
     "navigationBarTitleText": "签到系统",
     "navigationBarTextStyle": "black"
   },

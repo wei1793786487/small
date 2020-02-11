@@ -4,6 +4,5 @@
     "van-cell-group": "/@vant/weapp/cell-group/index",
       "van-button": "/@vant/weapp/button/index"
   },
-  "navigationBarTitleText": "会议详情",
-  "navigationBarBackgroundColor": "#5BFAFA"
+  "navigationBarTitleText": "会议详情"
 }

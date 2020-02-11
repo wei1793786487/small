@@ -9,7 +9,8 @@ export function request(options) {
       method: options.method || 'get',
       data: options.data || {},
       header: {
-        token
+        token,
+        'content-type': 'application/x-www-form-urlencoded',
       },
       success: res => {
         console.log(options.url)

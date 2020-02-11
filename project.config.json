@@ -82,6 +82,14 @@
 					"id": -1,
 					"name": "pages/details/details",
 					"pathName": "pages/details/details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/face/face",
+					"pathName": "pages/face/face",
+					"query": "",
 					"scene": null
 				}
 			]

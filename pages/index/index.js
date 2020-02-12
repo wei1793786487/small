@@ -43,6 +43,9 @@ Page({
         //   title: '获取数据中',
         // })
         getMeeting().then(res => {
+          if(res.data.code!=200){
+            return
+          }
           console.log(res)
           const datas = res.data.data;
           datas.forEach((item, index) => {

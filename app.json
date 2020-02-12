@@ -5,19 +5,6 @@
     "pages/details/details",
     "pages/user/user"
   ],
-  
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/user/user",
-        "text": "个人信息"
-      }
-    ]
-  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#5BFAFA",

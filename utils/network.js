@@ -13,8 +13,9 @@ export function request(options) {
         'content-type': 'application/x-www-form-urlencoded',
       },
       success: res => {
-        console.log(options.url)
-        console.log(token)
+        // console.log(res)
+        // console.log(options.url)
+        // console.log(token)
         //一般不会
         if (res.data.code === 1000) {
           console.log("认证失效,重新认证")

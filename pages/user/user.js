@@ -1,70 +1,68 @@
 // pages/user/user.js
+import Toast from '../../@vant/weapp/toast/toast'
+import {
+  checkPhone
+} from '../../utils/util.js'
+
+import {
+  bind
+}
+from '../../utils/request.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    name: "",
+    phone: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
- wx.getLocation({
-   success: function(res) {
-     console.log(res)
-   },
- })
+  onLoad: function(options) {
+    // wx.getLocation({
+    //   success: function(res) {
+    //     console.log(res)
+    //   },
+    // })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onChangen(event) {
+    // event.detail 为当前输入的值
+    this.setData({
+      name: event.detail
+    })
+  },
+  onChangep(event) {
+    // event.detail 为当前输入的值
+    this.setData({
+      phone: event.detail
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  submit: function(res) {
+    const name = this.data.name;
+    const phone = this.data.phone;
+    if (name === '') {
+      Toast('请输入名字');
+    } else if (phone === '' || !checkPhone(phone)) {
+      Toast('请输入正确格式电话号码');
+    } else {
+      bind(name,phone).then(res => {
+        if(res.data.code===200){
+          Toast('绑定成功');
+          wx.redirectTo({
+            url: '/pages/index/index',
+          })
+        }else{
+          Toast(res.data.message);
+        }
+      })
+    }
   }
+
+
 })

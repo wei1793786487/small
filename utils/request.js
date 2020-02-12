@@ -18,6 +18,18 @@ export function getOneMeeting(id) {
   })
 }
 
+
+export function bind(name,phone) {
+  return request({
+    url: url + "/person",
+    method: 'post',
+    data: {
+      pname: name,
+      phone: phone
+    }
+  })
+}
+
 export function getface(str,mid,latitude,longitude) {
   console.log(mid)
   return request({

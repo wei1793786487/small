@@ -1,2 +1,21 @@
-<!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+
+  <van-field
+    required
+   value="{{ name }}"
+    clearable
+     bind:change="onChangen"
+    label="姓名"
+    placeholder="请输入用户名"
+  />
+
+  <van-field
+    label="手机号码"
+     bind:change="onChangep"
+    value="{{ phone }}"
+    placeholder="请输入手机号码"
+    required
+    border="{{ false }}"
+  />
+<van-button class="button" bind:click="submit" size="large" color="linear-gradient(to right, #00CCFF, #00CCFF,#3CC4C4)">点击绑定</van-button>
+<van-toast id="van-toast" />
+

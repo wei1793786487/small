@@ -3,7 +3,7 @@ import {
   }
    from './network.js'
 
-const url = "http://127.0.0.1:10086"
+const url = "https://www.hqgml.com/sapi"
 
  
 export function getMeeting() {
@@ -33,7 +33,7 @@ export function bind(name,phone) {
 export function getface(str,mid,latitude,longitude) {
   console.log(mid)
   return request({
-    url: "http://127.0.0.1:8080/face/search",
+    url: "https://www.hqgml.com/api/face/search",
     method:'post',
     data:{
       mid:mid,

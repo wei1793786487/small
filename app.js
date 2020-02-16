@@ -19,7 +19,7 @@ loginsync(){
           console.log(res)
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
           wx.request({
-            url: 'http://127.0.0.1:10086/miniUser/login',
+            url: 'https://www.hqgml.com/sapi/miniUser/login',
             data: {
               code: res.code
             },

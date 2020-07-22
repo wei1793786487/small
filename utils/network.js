@@ -1,5 +1,3 @@
-
-
 export function request(options) {
   //草 应该是执行这个方法的时时候在取出啊！！
   return new Promise((resolve, reject) => {

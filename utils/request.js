@@ -1,7 +1,7 @@
 import {
-  request
+  login
   }
-   from './network.js'
+from './util/login'
 
 const url = "https://www.hqgml.com/sapi"
 

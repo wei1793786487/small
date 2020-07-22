@@ -4,6 +4,7 @@
     "pages/face/face",
     "pages/details/details",
     "pages/user/user"
+  
   ],
   "window": {
     "backgroundTextStyle": "light",

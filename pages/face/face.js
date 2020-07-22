@@ -23,7 +23,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
     this.setData({
       mid: options.id
     })
@@ -57,18 +56,21 @@ Page({
                 datas.setData({
                   message : res.data.data || res.data.message
                 })
+                wx.hideLoading()
               } else {
                 datas.setData({
                   message :res.data.data || res.data.message
                 })
                 datas.data.message = res.data.message;
+              
               }
-              wx.hideLoading()
+              Dialog.alert({
+                title: datas.data.title,
+                message: datas.data.message
+              })  
+
             })
-            Dialog.alert({
-              title: datas.data.title,
-              message: datas.data.message
-            })
+          
           },
           fail: function() {
             Dialog.alert({

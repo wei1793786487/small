@@ -1,9 +1,7 @@
-import {
-  login
-  }
-from './util/login'
 
-const url = "https://www.hqgml.com/sapi"
+
+import{request} from './network'
+const url = "https://127.0.0.1:8080"
 
  
 export function getMeeting() {

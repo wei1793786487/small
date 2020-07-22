@@ -10,6 +10,10 @@ export function login() {
             code: res.code
           },
           success: (res) => {
+            wx.setStorage({
+              key:"token",
+              data:res.data.data
+            })
             resolve(res);
           },
           fail: (err) => {

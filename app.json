@@ -3,8 +3,8 @@
     "pages/index/index",
     "pages/face/face",
     "pages/details/details",
-    "pages/user/user"
-  
+    "pages/user/user",
+    "pages/bandFace/face"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,10 +12,13 @@
     "navigationBarTitleText": "签到系统",
     "navigationBarTextStyle": "black"
   },
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index"
+  },
   "sitemapLocation": "sitemap.json",
   "permission": {
     "scope.userLocation": {
-      "desc": "用于获取您的签到地址" 
+      "desc": "用于获取您的签到地址"
     }
   }
 }

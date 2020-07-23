@@ -3,7 +3,6 @@ import {
   getBandInfo
 }
 from '../../api/info.js'
-var app = getApp();
 
 Page({
   /**
@@ -13,30 +12,32 @@ Page({
     Check: [],
     UnCheck: [],
     TimeOut: [],
-    active: 1,
-    isband: false,
+    active:1,
+    isband: 0,
+    isbandFace:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-   
+    wx.showLoading({
+      title: '加载中',
+    })
     const Check = [];
     const UnCheck = [];
     const TimeOut = [];
-
     getBandInfo().then(res=>{
-      console.log(res);
-    })
-    // getMeeting().then(res => {
-    //   console.log(res);
+       let data=res.data;
+       this.setData({
+        isband:data.face_band,
+        isbandFace:data.person_band
+       })
+       wx.hideLoading()
       
-    //   })
+    })
     // onLaunch()中的请求与index.js onLoad()中的请求是同时进行的 需要使用promise转为同步
-   
     // app.loginsync().then((res) => {
-
     //   if (res.statusCode == 200) {
     //     const token = res.data.token;
     //     app.globalData.isband = res.data.isband;

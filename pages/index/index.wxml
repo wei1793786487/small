@@ -1,5 +1,4 @@
 <van-tabs active="{{ active }}" color="#5BFAFA">
-
   <van-tab title="已签到">
     <block wx:if="{{isband}}">
       <van-cell-group wx:for="{{Check}}" wx:key="{{index}}">
@@ -8,12 +7,11 @@
       </van-cell-group>
     </block>
     <block wx:else>
-      <noband/>
+      <noband band="{{isbandFace}}"/>
     </block>
 
   </van-tab>
   <van-tab title="未签到">
-
     <block wx:if="{{isband}}">
       <van-cell-group wx:for="{{UnCheck}}" wx:key="{{index}}">
       <!-- {{item}} -->
@@ -21,13 +19,11 @@
       </van-cell-group>
     </block>
     <block wx:else>
-      <noband/>
+      <noband band="{{isbandFace}}"/>
     </block>
-    
   </van-tab>
 
   <van-tab title="签到过期">
-   
     <block wx:if="{{isband}}">
       <van-cell-group wx:for="{{TimeOut}}" wx:key="{{index}}">
       <!-- {{item}} -->
@@ -35,7 +31,7 @@
       </van-cell-group>
     </block>
     <block wx:else>
-      <noband/>
+     <noband band="{{isbandFace}}"/>
     </block>
   </van-tab>
 </van-tabs>

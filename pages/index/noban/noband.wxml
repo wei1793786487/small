@@ -1,7 +1,6 @@
 
 <van-icon class="noban_icon"  name="friends-o" size="200rpx" color="#C7F709"/> 
- <view style="text-align:center">你没有绑定用户。
  
+ <view  style="text-align:center">你没有绑定{{band===0?'用户':'人脸'}}
  <van-button size="small" bind:click="gobind" color="linear-gradient(to right, #4bb0ff, #6149f6)">点我绑定</van-button>
-
-  </view>
+</view>

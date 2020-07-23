@@ -4,7 +4,6 @@
     "van-tabs": "/@vant/weapp/tabs/index",
     "van-cell": "/@vant/weapp/cell/index",
     "van-cell-group": "/@vant/weapp/cell-group/index",
-    
     "noband": "./noban/noband"
   },
   "navigationBarBackgroundColor": "#5BFAFA",

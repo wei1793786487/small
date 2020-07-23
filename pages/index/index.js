@@ -1,12 +1,11 @@
-// pages/index/index.js
+
 import {
-  getMeeting
+  getBandInfo
 }
-from '../../utils/request.js'
+from '../../api/info.js'
 var app = getApp();
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -26,10 +25,14 @@ Page({
     const Check = [];
     const UnCheck = [];
     const TimeOut = [];
-    getMeeting().then(res => {
+
+    getBandInfo().then(res=>{
       console.log(res);
+    })
+    // getMeeting().then(res => {
+    //   console.log(res);
       
-      })
+    //   })
     // onLaunch()中的请求与index.js onLoad()中的请求是同时进行的 需要使用promise转为同步
    
     // app.loginsync().then((res) => {

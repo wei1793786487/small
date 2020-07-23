@@ -1,9 +1,7 @@
 
 
 import{request} from './network'
-const url = "https://127.0.0.1:8080"
 
- 
 export function getMeeting() {
   return request({
     url: url + "/meeting"

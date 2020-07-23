@@ -1,7 +1,7 @@
 import {
   login
   }
-   from './utils/login'
+   from './api/login'
 App({
   onLaunch: function () {
     login()

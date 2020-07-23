@@ -2,7 +2,7 @@
 import {
   login
   }
-   from './login'
+ from '../api/login'
 
 export function request(options) {
   return new Promise((resolve, reject) => {
@@ -12,7 +12,7 @@ export function request(options) {
       method: options.method || 'get',
       data: options.data || {},
       header: {
-        "Authorization":"VXBearer"+token,
+        "vxAuthorization":"VXBearer"+token,
         'content-type': 'application/x-www-form-urlencoded',
       },
       success: res => {

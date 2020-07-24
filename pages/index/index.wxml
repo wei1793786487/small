@@ -1,7 +1,7 @@
 <van-tabs active="{{ active }}" color="#5BFAFA">
   <van-tab title="已签到">
-    <block wx:if="{{isband}}">
-      <van-cell-group wx:for="{{Check}}" wx:key="{{index}}">
+    <block wx:if="{{isband==1&&isbandFace==1}}">
+      <van-cell-group wx:for="{{Check}}" wx:key="index">
       <!-- {{item}} -->
         <van-cell title="{{item.meetingName}}" data-ischeck="{{true}}" label="{{item.startTime+'到'+item.endTime}}" bind:click ='Jump' data-id="{{item.id}}"  border="{{ true }}" />
       </van-cell-group>
@@ -9,11 +9,10 @@
     <block wx:else>
       <noband band="{{isbandFace}}"/>
     </block>
-
   </van-tab>
   <van-tab title="未签到">
-    <block wx:if="{{isband}}">
-      <van-cell-group wx:for="{{UnCheck}}" wx:key="{{index}}">
+    <block wx:if="{{isband==1&&isbandFace==1}}">
+      <van-cell-group wx:for="{{UnCheck}}" wx:key="index">
       <!-- {{item}} -->
         <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}"  bind:click ='Jump' data-id="{{item.id}}" border="{{ true }}" />
       </van-cell-group>
@@ -22,10 +21,9 @@
       <noband band="{{isbandFace}}"/>
     </block>
   </van-tab>
-
   <van-tab title="签到过期">
-    <block wx:if="{{isband}}">
-      <van-cell-group wx:for="{{TimeOut}}" wx:key="{{index}}">
+    <block wx:if="{{isband==1&&isbandFace==1}}">
+      <van-cell-group wx:for="{{TimeOut}}" wx:key="index">
       <!-- {{item}} -->
         <van-cell title="{{item.meetingName}}" label="{{item.startTime+'到'+item.endTime}}" bind:click ='Jump' data-id="{{item.id}}" border="{{ true }}" />
       </van-cell-group>

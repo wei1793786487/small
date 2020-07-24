@@ -2,8 +2,8 @@
 
 import {
   getface
-}
-from '../../utils/request.js'
+} from '../../api/sign.js'
+
 import Dialog from '../../@vant/weapp/dialog/dialog';
 
 Page({
@@ -28,7 +28,6 @@ Page({
     })
   },
 
-
   takePhoto() {
     wx.showLoading({
       title: '识别中',
@@ -46,10 +45,7 @@ Page({
         wx.getLocation({
           success: res => {
             console.log(res)
-            //成功了之后再发送请求
-            // console.log(res)
-            // console.log(base64)
-            //这个调用的是没有进行校验的 就是说这个接口是谁都可以访问的 其实是不安全的
+      
             getface(base64, mid, res.latitude, res.longitude).then(res => {
               console.log(res)
               if (res.data.code = 200) {
@@ -62,15 +58,12 @@ Page({
                   message :res.data.data || res.data.message
                 })
                 datas.data.message = res.data.message;
-              
               }
               Dialog.alert({
                 title: datas.data.title,
                 message: datas.data.message
               })  
-
             })
-          
           },
           fail: function() {
             Dialog.alert({

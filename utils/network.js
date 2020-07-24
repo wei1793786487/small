@@ -20,7 +20,7 @@ export function request(options) {
         if (res.data.code === 1000) {
           console.log("登录到期，重新登录");
           login().then(res=>[
-            request(option)
+            request(options)
           ]);
         } 
           resolve(res)

@@ -26,18 +26,3 @@ export function bind(name,phone) {
   })
 }
 
-export function getface(str,mid,latitude,longitude) {
-  console.log(mid)
-  return request({
-    url: "https://www.hqgml.com/api/face/search",
-    method:'post',
-    data:{
-      mid:mid,
-      imgStr:str,
-      lat:latitude,
-      long:longitude
-    }
-  })
-}
-
-

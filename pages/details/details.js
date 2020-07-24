@@ -1,11 +1,9 @@
 // pages/details/details.js
 import {
-  getOneMeeting
-}
-from '../../utils/request.js'
-var _mid = "";
-Page({
+  getMeetingById
+} from '../../api/meeting.js'
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -26,9 +24,8 @@ Page({
   onLoad: function(options) {
     const mid = options.id;
     const ischek = options.ischeck;
-    _mid = mid;
-    console.log(mid)
-    getOneMeeting(mid).then(res => {
+
+    getMeetingById(mid).then(res => {
       console.log(res)
       const data = res.data.data;
       const address = data.meetingAddress + data.addressName
@@ -43,7 +40,6 @@ Page({
       })
       var date = new Date(data.endTime);
       var curDate = new Date();
-
       if (ischek === "true") {
         this.setData({
           buttontext: "你已经签到过了",

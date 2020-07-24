@@ -9,7 +9,7 @@
   <van-cell title="会议开始时间" value="{{startTime}}" />
   <van-cell title="结束时间" value="{{endTime}}" />
   <van-cell title="会议地点" value="{{address}}" />
-    <van-cell title="联系人电话" value="{{meetingPhone}}" />
+   <van-cell title="联系人电话" value="{{meetingPhone}}" />
    <van-cell title="会议介绍"  label="{{information==''?'无信息':information}}" />
    <van-button bind:click="goLogin" disabled='{{isfalse}}' type="primary" size="large">{{buttontext}}</van-button>
 </van-cell-group>

@@ -6,8 +6,10 @@ import {
 
 import {
   bind
-}
-from '../../utils/request.js'
+} from '../../api/band.js'
+
+
+
 Page({
 
   /**
@@ -21,29 +23,22 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    // wx.getLocation({
-    //   success: function(res) {
-    //     console.log(res)
-    //   },
-    // })
+  onLoad: function (options) {
+
   },
 
-  onChangen(event) {
-    // event.detail 为当前输入的值
+  userChance(event) {
     this.setData({
       name: event.detail
     })
   },
-  onChangep(event) {
-    // event.detail 为当前输入的值
+  phoneChance(event) {
     this.setData({
       phone: event.detail
     })
   },
 
-
-  submit: function(res) {
+  submit: function (res) {
     const name = this.data.name;
     const phone = this.data.phone;
     if (name === '') {
@@ -51,13 +46,26 @@ Page({
     } else if (phone === '' || !checkPhone(phone)) {
       Toast('请输入正确格式电话号码');
     } else {
-      bind(name,phone).then(res => {
-        if(res.data.code===200){
-          Toast('绑定成功');
-          wx.redirectTo({
-            url: '/pages/index/index',
-          })
-        }else{
+      bind(name, phone).then(res => {
+        if (res.data.code === 200) {
+          if (res.data.data === 0) {
+            Toast('绑定成功');
+            setTimeout(function () {
+              wx.redirectTo({
+                url: '/pages/index/index',
+              })
+            }, 2000)
+          } else {
+            if (res.data.data === 1) {
+              Toast('绑定成功,请前往绑定人脸');
+              setTimeout(function () {
+                wx.redirectTo({
+                  url: '/pages/bandFace/face',
+                })
+              }, 2000)
+            }
+          }
+        } else {
           Toast(res.data.message);
         }
       })

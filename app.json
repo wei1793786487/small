@@ -4,7 +4,8 @@
     "pages/face/face",
     "pages/details/details",
     "pages/user/user",
-    "pages/bandFace/face"
+    "pages/bandFace/face",
+    "pages/location/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

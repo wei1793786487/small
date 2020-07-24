@@ -3,6 +3,6 @@ import{request} from '../utils/network'
 
 export function getBandInfo() {
   return request({
-    url:  `${config.api_base_url}/vx/band`
+    url:  `${config.api_base_url}/vx/bandinfo`
   })
 }

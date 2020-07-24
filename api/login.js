@@ -1,6 +1,5 @@
 
 import {config} from "../settings/url"
-
 export function login() {
   return new Promise((resolve, reject) => {
     wx.login({

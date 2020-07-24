@@ -3,14 +3,14 @@
     required
    value="{{ name }}"
     clearable
-     bind:change="onChangen"
+     bind:change="userChance"
     label="姓名"
     placeholder="请输入用户名"
   />
 
   <van-field
     label="手机号码"
-     bind:change="onChangep"
+     bind:change="phoneChance"
     value="{{ phone }}"
     placeholder="请输入手机号码"
     required

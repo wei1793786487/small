@@ -1,2 +1,3 @@
-<!--pages/bandFace/face.wxml-->
-<text>pages/bandFace/face.wxml</text>
+<camera device-position="front" flash="off" binderror="error" style="width: 100%; height: 400px;"></camera>
+
+<button type="primary" bindtap="takePhoto">点击上传人脸</button>

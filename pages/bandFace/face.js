@@ -17,8 +17,7 @@ Page({
     
   },
   takePhoto() {
-    let token= "eyJhbGciOiJSUzI1NiJ9.eyJ1c2VyIjoie1wiaWRcIjoyNyxcIm9wZW5pZFwiOlwibzhvMnY0azZlUHZFd1hKbWE5OURGYXRQNmhSNFwiLFwibGFzdFRpbWVcIjpcIjIwMjAtMDctMjQgMTc6MTI6MjJcIixcImNyZWF0ZVRpbWVcIjpcIjIwMjAtMDctMjQgMTU6MTg6MTdcIixcInBpZFwiOm51bGx9IiwianRpIjoiTWpNMFlXTXpaalV0WlROa1pDMDBaREJsTFRsa1lXWXRNV1V6TlRRMVpETTBNMkkxIiwiZXhwIjoxNTk1NTg5NzQyfQ.QyJw9iCPjJY1yEKuukv1VLsy-kJfTjLyh7txeOOCa6YyksUyMWNFhiojlY0X1DSn28BXtctWAmJQnjbbshz0Ne0TaiPlRaw8vw3xCywINIVFtqwKQqz7LndBBBvQh8dtWyj53kYBBjs1p0EivpHecvWF3gqlcMD8UWOFfD_l3uGszyREj9FkOP0kyOisP-myT9fU3UuSf2lP6bnIcTdO89E3nI8NjdI9VJeAlPjIAmuIGHAqViWdhnY-gw1CwyYFHBkYjGxLi8zdEtJX-0RVwggZdRbfCBL2gz7Cp0COnPaqnjOsTTyloutBTZ08xNL2W94-9f6A9_OTkJRBdI3nQw";
-    console.log(token);
+    let token="eyJhbGciOiJSUzI1NiJ9.eyJ1c2VyIjoie1wiaWRcIjoyNyxcIm9wZW5pZFwiOlwibzhvMnY0azZlUHZFd1hKbWE5OURGYXRQNmhSNFwiLFwibGFzdFRpbWVcIjpcIjIwMjAtMDctMjQgMTc6MTI6MjJcIixcImNyZWF0ZVRpbWVcIjpcIjIwMjAtMDctMjQgMTU6MTg6MTdcIixcInBpZFwiOm51bGx9IiwianRpIjoiT0RCbU16RTVZell0TmprMFpDMDBNV1EwTFdJeU1UTXRaVFV6TURKa1lXVXhPREkyIiwiZXhwIjoxNTk1NjYyODYxfQ.XejhdycO4E2smEbE_0ucXqGOTCa1rJnb3Egf4ENs-rqMz1Dorf7MczV37J4iP50rQnf8AI_fWxozKOvCaf8zmod_XN1PtEPTmZS_xl0hP8E-E34JVbCpMJwOkQyf0VPTLqS8z6B-8tjwMlGW2BO8QJ5HQPfaN7dkDvzN4WSCKy7rMbqjzTZhxbMvQCRAvoPw-AwpxIyLopWIzLLtoqJjokURBvU5wnmvjcGqsyCp33yGyaHJ5P_PbX1yhcazOP-H1VZxu0C2wTeNSNW2JA2y9oGXDRqixiL7JZt1lXTYrW7J24xpEu91Ri9UCWnbsJFOqADc2I8BZbG-AbwYErkdeQ"
     wx.showLoading({
       title: '认证人脸中',
     })
@@ -30,8 +29,7 @@ Page({
         wx.showToast({ icon: "loading", title: "正在上传……" });
 
         wx.uploadFile({
-          // url: `${config.api_base_url}/upload/face`, //后端接口
-          url:"http://192.168.1.105:8080/upload/face",
+          url: `${config.api_base_url}/upload/face`, //后端接口
           filePath: tempFilePath,
           name: 'file',
           header: {
@@ -39,10 +37,11 @@ Page({
            "vxAuthorization":"VXBearer"+token,
           },
           success(res) {
-           if (res.statusCode != 200) {
-            wx.showModal({ title: '提示', content: '上传失败', showCancel: false });
+           if (res.code != 200) {
+            wx.showModal({ title: '提示', content: res.data, showCancel: false });
             return;
            } else{
+            wx.hideToast(); 
             console.log("");
            }
           },
@@ -51,7 +50,7 @@ Page({
            wx.showModal({ title: '提示', content: '上传失败', showCancel: false });
           },
           complete() {
-           wx.hideToast(); //隐藏Toast
+           
           }
          })
 

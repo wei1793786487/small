@@ -15,7 +15,8 @@ Page({
     endTime: '',
     meetingPhone: '',
     information: '',
-    name: ''
+    name: '',
+    mid:''
   },
 
   /**
@@ -36,7 +37,8 @@ Page({
         endTime: data.endTime,
         meetingPhone: data.meetingPhone,
         information: data.information,
-        name: data.meetingName
+        name: data.meetingName,
+        mid:data.id
       })
       var date = new Date(data.endTime);
       var curDate = new Date();
@@ -54,9 +56,8 @@ Page({
     })
   },
   goLogin() {
-    console.log(_mid)
     wx.redirectTo({
-      url: '/pages/face/face?id=' + _mid + '',
+      url: '/pages/face/face?id=' + this.data.mid + '',
     })
   }
 })

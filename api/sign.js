@@ -1,5 +1,5 @@
 
-import {config} from "../settings/url"
+import {config} from "../settings/set"
 import{request} from '../utils/network'
 
 export function getface(str,mid,latitude,longitude) {

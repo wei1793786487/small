@@ -1,6 +1,9 @@
 import {
   getMeetingById
 } from '../../api/meeting.js'
+
+import {config} from "../../settings/set"
+
 var QQMapWX = require('../../lib/qqmap-wx-jssdk.min');
 var qqmapsdk;
 let inter
@@ -21,7 +24,7 @@ Page({
       mask:'true'
     })
     qqmapsdk = new QQMapWX({
-      key: 'N4NBZ-5IFWK-NH7JH-AK7LS-77W77-LMBVI' // 必填
+      key: config.qqKey// 必填
     });
   getMeetingById(option.id).then(res=>{
     let data=res.data.data

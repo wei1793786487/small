@@ -1,9 +1,7 @@
 import {
   getMeetingById
 } from '../../api/meeting.js'
-
 import {config} from "../../settings/set"
-
 var QQMapWX = require('../../lib/qqmap-wx-jssdk.min');
 var qqmapsdk;
 let inter

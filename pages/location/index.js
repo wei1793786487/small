@@ -3,7 +3,7 @@ import {
 } from '../../api/meeting.js'
 var QQMapWX = require('../../lib/qqmap-wx-jssdk.min');
 var qqmapsdk;
-
+let inter
 Page({
   data: {
     Height: 0,
@@ -27,7 +27,7 @@ Page({
     let data=res.data.data
     this.distance(data)
     //开启定时器每秒计算时间
-    setInterval(()=>{
+    inter= setInterval(()=>{
     this.distance(data)
     },10000)
     this.setData({
@@ -61,6 +61,12 @@ Page({
         })
       }
     })
+  },
+  onHide: function () {
+    clearInterval(inter)
+  },
+  onUnload: function () {
+    clearInterval(inter)
   },
   distance(data) {
     qqmapsdk.calculateDistance({

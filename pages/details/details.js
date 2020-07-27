@@ -57,7 +57,7 @@ Page({
   },
   goLogin() {
     wx.redirectTo({
-      url: '/pages/face/face?id=' + this.data.mid + '',
+      url: '/pages/location/index?id=' + this.data.mid + '',
     })
   }
 })

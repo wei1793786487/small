@@ -23,6 +23,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+  
     this.setData({
       mid: options.id
     })
@@ -43,9 +44,10 @@ Page({
         const base64 = wx.getFileSystemManager().readFileSync(res.tempImagePath, "base64");
         //获取位置
         wx.getLocation({
+          type: 'gcj02',
+          isHighAccuracy:'true',
           success: res => {
             console.log(res)
-      
             getface(base64, mid, res.latitude, res.longitude).then(res => {
               console.log(res)
               if (res.data.code = 200) {

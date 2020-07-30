@@ -25,12 +25,14 @@ Page({
   onLoad: function(options) {
     const mid = options.id;
     const ischek = options.ischeck;
-
+    wx.showLoading({
+      title: '加载中',
+      mask:'true'
+    })
     getMeetingById(mid).then(res => {
-      console.log(res)
+    wx.hideLoading()
       const data = res.data.data;
       const address = data.meetingAddress + data.addressName
-      console.log(address)
       this.setData({
         address: address,
         startTime: data.startTime,

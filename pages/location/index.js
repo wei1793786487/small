@@ -17,8 +17,9 @@ Page({
     circles: []
   },
   onLoad: function (option) {
+
     wx.showLoading({
-      title: '价值',
+      title: '加载中',
       mask:'true'
     })
     qqmapsdk = new QQMapWX({
@@ -26,10 +27,10 @@ Page({
     });
   getMeetingById(option.id).then(res=>{
     let data=res.data.data
-    this.distance(data)
+    this.distance(data,option.id)
     //开启定时器每秒计算时间
     inter= setInterval(()=>{
-    this.distance(data)
+     this.distance(data,option.id)
     },10000)
     this.setData({
       latitude: data.lat,
@@ -69,7 +70,7 @@ Page({
   onUnload: function () {
     clearInterval(inter)
   },
-  distance(data) {
+  distance(data,id) {
     qqmapsdk.calculateDistance({
       to: [{
         latitude:data.lat,
@@ -79,7 +80,7 @@ Page({
        let distance =res.result.elements[0].distance;
         if(distance<100){
           wx.redirectTo({
-            url: '/pages/face/face?id=' + this.data.mid + '',
+            url: '/pages/face/face?id=' + id + '',
           })
         }
         this.setData({

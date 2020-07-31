@@ -11,3 +11,10 @@ export function bind(name,phone) {
     }
   })
 }
+
+export function hellow () {
+  return request({
+    url:  `${config.api_base_url}/vx`,
+    method: 'delete',
+  })
+}

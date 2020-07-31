@@ -1,1 +1,5 @@
 /* pages/face/face.wxss */
+.button{
+  position: absolute;
+  left: 30%;
+}

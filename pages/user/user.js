@@ -39,6 +39,9 @@ Page({
   },
 
   submit: function (res) {
+    wx.showLoading({
+      title: '加载中',
+    })
     const name = this.data.name;
     const phone = this.data.phone;
     if (name === '') {
@@ -47,6 +50,7 @@ Page({
       Toast('请输入正确格式电话号码');
     } else {
       bind(name, phone).then(res => {
+        wx.hideLoading()
         if (res.data.code === 200) {
           if (res.data.data === 0) {
             Toast('绑定成功');
@@ -63,12 +67,17 @@ Page({
                   url: '/pages/bandFace/face',
                 })
               }, 2000)
+            }else{
+              Toast('未查找到您的信息，请联系管理员添加');
             }
           }
         } else {
           Toast(res.data.message);
         }
-      })
+      }).catch(res=>{
+      wx.hideLoading()
+    })
+
     }
   }
 

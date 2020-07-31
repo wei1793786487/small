@@ -44,10 +44,10 @@ Page({
             if (res.data.code != 200) {
               return
             }
-            console.log(res)
             const datas = res.data.data;
             datas.forEach((item, index) => {
-              if (item.ischeck === 1) {
+              console.log();
+              if (item.isCheck=== 1) {
                 Check.push(item)
               } else {
                 var date = new Date(item.endTime);

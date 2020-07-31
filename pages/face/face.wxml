@@ -1,3 +1,14 @@
+
+<view wx:if="{{show}}">
 <camera device-position="front" flash="off" binderror="error" style="width: 100%; height: 300px;"></camera>
 <button type="primary" bindtap="takePhoto">点击签到</button>
+</view>
+
+<view wx:else >
+<van-panel title="签到信息" desc="签到地点是" status="未签到">
+  <view>
+  <van-button class="button" type="primary" bind:click="qiandao">点我签到</van-button>
+  </view>
+</van-panel>
+</view>
 <van-dialog id="van-dialog" />

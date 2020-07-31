@@ -4,6 +4,10 @@ import {
   getface
 } from '../../api/sign.js'
 
+import {
+  hellow
+} from '../../api/band.js'
+
 import Dialog from '../../@vant/weapp/dialog/dialog';
 
 Page({
@@ -16,14 +20,21 @@ Page({
     message: '',
     title: '信息',
     lat: '',
-    long: ''
+    long: '',
+    show:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-  
+    hellow().then(res=>{
+      if(res.data.code===404){
+        this.setData({
+          show:true
+        })
+       }
+    })
     this.setData({
       mid: options.id
     })
@@ -76,7 +87,12 @@ Page({
       }
     })
   },
-
+  qiandao(){
+    Dialog.alert({
+      title: '信息',
+      message: '签到成功',
+    })
+  }
 
 
 })

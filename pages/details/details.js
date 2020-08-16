@@ -45,7 +45,8 @@ Page({
       var date_start = new Date(data.startTime);
       var date_end = new Date(data.endTime);
       var date_now = new Date();
-
+      
+      
       if (ischek === "true") {
         this.setData({
           buttontext: "你已经签到过了",

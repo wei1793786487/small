@@ -39,9 +39,7 @@ Page({
   },
 
   submit: function (res) {
-    wx.showLoading({
-      title: '加载中',
-    })
+  
     const name = this.data.name;
     const phone = this.data.phone;
     if (name === '') {
@@ -49,6 +47,9 @@ Page({
     } else if (phone === '' || !checkPhone(phone)) {
       Toast('请输入正确格式电话号码');
     } else {
+      wx.showLoading({
+        title: '加载中',
+      })
       bind(name, phone).then(res => {
         wx.hideLoading()
         if (res.data.code === 200) {

@@ -52,7 +52,7 @@ Page({
               } else {
                 var date = new Date(item.endTime);
                 var curDate = new Date();
-                if (date > curDate) {
+                if (date.getTime() > curDate.getTime()) {
                   UnCheck.push(item)
                 } else {
                   TimeOut.push(item)

@@ -42,16 +42,18 @@ Page({
         name: data.meetingName,
         mid:data.id
       })
-      var date = new Date(data.endTime);
-      var curDate = new Date();
+      var date_start = new Date(data.startTime);
+      var date_end = new Date(data.endTime);
+      var date_now = new Date();
+
       if (ischek === "true") {
         this.setData({
           buttontext: "你已经签到过了",
           isfalse: true
         })
-      } else if (date < curDate) {
+      } else if (!date_start<date_now||!date_now<date_end) {
         this.setData({
-          buttontext: "签到已过期，不可签到",
+          buttontext: "不在签到范围内",
           isfalse: true
         })
       }

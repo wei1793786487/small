@@ -1,11 +1,12 @@
 // pages/user/user.js
 import Toast from '../../@vant/weapp/toast/toast'
+import Dialog from '../../@vant/weapp/dialog/dialog';
 import {
   checkPhone
 } from '../../utils/util.js'
 
 import {
-  bind
+  bind,usernameStatus
 } from '../../api/band.js'
 
 
@@ -47,10 +48,37 @@ Page({
     } else if (phone === '' || !checkPhone(phone)) {
       Toast('请输入正确格式电话号码');
     } else {
-      wx.showLoading({
-        title: '加载中',
+   
+ 
+      usernameStatus(name).then(res=>{
+      let message="";
+      console.log(res);
+      
+      if(res.data.data===0){
+        this.bandface(name,phone)
+      }else if(res.data.data===1) {
+        Dialog.confirm({
+          title: '提醒',
+          message: "该人员已存在人脸库,您将绑定人员库的该人员",
+        })
+          .then(() => {
+            this.bandface(name,phone)
+          })
+      }else if(res.data.data===2){
+        Dialog.alert({
+          title: '提醒',
+          message: '改姓名已经被其他微信用户绑定,请联系管理员',
+        })
+      }
       })
-      bind(name, phone).then(res => {
+
+    }
+  },
+  bandface(name,phone){
+    wx.showLoading({
+      title: '加载中',
+    })
+    bind(name, phone).then(res => {
         wx.hideLoading()
         if (res.data.code === 200) {
           if (res.data.data === 0) {
@@ -78,9 +106,6 @@ Page({
       }).catch(res=>{
       wx.hideLoading()
     })
-
-    }
   }
-
 
 })

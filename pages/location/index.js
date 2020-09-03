@@ -31,7 +31,7 @@ Page({
     //开启定时器每秒计算时间
     inter= setInterval(()=>{
      this.distance(data,option.id)
-    },10000)
+    },1000)
     this.setData({
       latitude: data.lat,
       longitude: data.lng,

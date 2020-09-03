@@ -18,3 +18,14 @@ export function hellow () {
     method: 'delete',
   })
 }
+
+
+export function usernameStatus (name) {
+  return request({
+    url:  `${config.api_base_url}/vx/username`,
+    method: 'get',
+    data: {
+      pname: name
+    }
+  })
+}

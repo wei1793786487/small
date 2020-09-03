@@ -18,4 +18,5 @@
   />
 <van-button class="button" bind:click="submit" size="large" color="linear-gradient(to right, #00CCFF, #00CCFF,#3CC4C4)">点击绑定</van-button>
 <van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
 

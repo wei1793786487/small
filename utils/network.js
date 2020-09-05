@@ -4,6 +4,9 @@ import {
   }
  from '../api/login'
 
+
+
+
 export function request(options) {
   return new Promise((resolve, reject) => {
     const token = wx.getStorageSync('token');

@@ -133,6 +133,12 @@
 					"pathName": "pages/location/index",
 					"query": "id=94",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"scene": null
 				}
 			]
 		}

@@ -42,8 +42,9 @@ Page({
         name: data.meetingName,
         mid:data.id
       })
-      var date_start = new Date(data.startTime).getTime();
-      var date_end = new Date(data.endTime).getTime();
+     
+      var date_start = new Date(data.startTime.replace(/\-/g, "/")).getTime();
+      var date_end = new Date(data.endTime.replace(/\-/g, "/")).getTime();
       var date_now = new Date().getTime();
       
 

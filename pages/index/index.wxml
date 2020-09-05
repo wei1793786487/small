@@ -1,3 +1,8 @@
+
+<van-notice-bar
+  left-icon="clock-o"
+  text="当前时间：{{time}}"
+/>
 <van-tabs active="{{ active }}" color="#5BFAFA">
   <van-tab title="已签到">
     <block wx:if="{{isband==1&&isbandFace==1}}">

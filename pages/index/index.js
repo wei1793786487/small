@@ -4,10 +4,12 @@ import {
 import {
   getMeeting
 } from '../../api/meeting.js'
-
 import {
   login
 } from '../../api/login.js'
+
+const time = require('../../utils/time.js')
+
 Page({
   /**
    * 页面的初始数据
@@ -18,6 +20,7 @@ Page({
     TimeOut: [],
     active: 1,
     isband: 0,
+    time:"2000/01/01 00:00:00",
     isbandFace: 0,
   },
 
@@ -25,6 +28,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   setInterval(()=>{
+    this.setData({
+      time: time.formatTime(new Date())
+    })
+   },1000)
     wx.showLoading({
       title: '加载中',
       mask:true
@@ -34,6 +42,7 @@ Page({
     const TimeOut = [];
     login().then(res => {
       getBandInfo().then(res => {
+      
         let data = res.data.data;
         this.setData({
           isband: data.face_band,
@@ -46,17 +55,16 @@ Page({
             }
             const datas = res.data.data;
             datas.forEach((item, index) => {
-              console.log();
               if (item.isCheck=== 1) {
                 Check.push(item)
               } else {
-                var date = new Date(item.endTime);
-                var curDate = new Date();
-                if (date.getTime() > curDate.getTime()) {
-                  UnCheck.push(item)
-                } else {
+                //结束时间
+                var curDate = new Date(item.endTime.replace(/\-/g, "/"));
+                if (res.data.timestamp> curDate.getTime()) {
                   TimeOut.push(item)
-                }
+                } else {
+                  UnCheck.push(item)     
+                }          
               }
             });
             this.setData({
@@ -64,12 +72,7 @@ Page({
               UnCheck: UnCheck,
               TimeOut: TimeOut
             })
-            console.log("未签到")
-            console.log(this.data.UnCheck)
-            console.log("已签到")
-            console.log(this.data.Check)
-            console.log("超时")
-            console.log(this.data.TimeOut)
+
             wx.stopPullDownRefresh()
           })
         }

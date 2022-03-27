@@ -11,7 +11,7 @@ export function login() {
             code: res.code
           },
           success: (res) => {
-            wx.setStorage({
+            wx.setStorageSync({
               key:"token",
               data:res.data.data
             })

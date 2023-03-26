@@ -77,10 +77,12 @@ Page({
           })
         }
         wx.hideLoading()
+      }).catch(res=>{
+        wx.hideLoading()
       })
     })
 
-
+   
 
 
   },
